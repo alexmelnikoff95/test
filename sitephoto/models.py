@@ -57,6 +57,7 @@ class Blog(models.Model):
 
 
 class About(models.Model):
+    '''test'''
     title = models.CharField(max_length=255, verbose_name='Название')
     slug = models.SlugField(max_length=255, unique=True, verbose_name='Слаг')
     text = models.TextField(verbose_name='Описание нас')
