@@ -37,6 +37,7 @@ class PhotoCollect(models.Model):
 
 
 class Blog(models.Model):
+    '''запись для блога'''
     name = models.CharField(max_length=255, verbose_name='Название блога')
     slug = models.SlugField(unique=True, verbose_name='Слаг для блога')
     description = models.TextField(verbose_name='Текст для блога')
