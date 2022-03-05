@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends 'photo.html' %}
+{% block content %}
+<header class="masthead">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h2 class="mx-auto my-0 text-uppercase">коллекция</h2>
+                <a class="btn btn-primary" href="{%  url 'base_view'  %}">на главную</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="projects-section bg-light" id="projects">
+    <div class="container px-4 px-lg-0">
+        {% for image in photo.photocollect_set.all %}
+        <div class="row gx-0 justify-content-center">
+            <div class="col-md-8 product-men">
+                <div class="product-shoe-info editContent text-center mt-lg-4">
+                    <div class="image-1">
+                        <img src="{{  image.image.url }}" class="img-fluid-1" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <nav class="list-pages">
+            <ul>
+                {% for p in page_obj.paginator.page_range %}
+                {% if page_obj.number == p %}
+                <li class="page-num page-num-selected">{{ p }}</li>
+                {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+                <li class="page-num">
+                    <a href="?page={{ p }}">{{ p }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'photo.html' %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="d-flex justify-content-center">
+            <div class="text-center">
+                <h2 class="mx-auto my-3 text-uppercase">Черно-белый мир фотографий</h2>
+                <a class="btn btn-primary" href="{%  url 'base_view'  %}">на главную</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+{%  for abouts in about %}
+<bodys>
+    <h1>{{ abouts.title }}</h1>
+    <hrs>
+        <div class="containers">
+            <p>{{ abouts.text }}</p>
+        </div>
+    </hrs>
+</bodys>
+{% endfor %}
+{% endblock %}
